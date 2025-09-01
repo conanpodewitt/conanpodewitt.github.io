@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Conan (Po) Dewitt</title>
+
+  <!-- Bootstrap CSS -->
+  <link
+    rel="stylesheet"
+    href="static/css/bootstrap.css"
+  />
+
+  <!-- Favicon -->
+  <link
+    rel="icon"
+    href="static/images/favicon.ico"
+    type="image/x-icon"
+  />
+
+  <style>
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+    }
+    body {
+      display: flex;
+      flex-direction: column;
+    }
+    .sticky-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: #f8f9fa;
+    }
+    .main-content {
+      flex: 1;
+      padding: 2rem 1rem;
+    }
+    .sticky-footer {
+      position: sticky;
+      bottom: 0;
+      z-index: 1000;
+      background: #f8f9fa;
+      text-align: center;
+      padding: 1rem 0;
+    }
+  </style>
+</head>
+<body>
+  <header class="sticky-header">
+    <div class="container text-center">
+      <h1>Conan (Po) Dewitt</h1>
+    </div>
+  </header>
+
+  <main class="main-content container">
+    <section id="about">
+      <h2>About Me</h2>
+      <p>Write a short bio here.</p>
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+      <ul>
+        <li><a href="#">Project A</a></li>
+        <li><a href="#">Project B</a></li>
+      </ul>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:you@example.com">you@example.com</a></p>
+    </section>
+  </main>
+
+  <footer class="sticky-footer">
+    &copy; 2025 Conan (Po) Dewitt. All rights reserved.
+  </footer>
+</body>
+</html>
