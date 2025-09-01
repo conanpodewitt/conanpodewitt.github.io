@@ -4,79 +4,215 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Conan (Po) Dewitt</title>
-
-  <!-- Bootstrap CSS -->
-  <link
-    rel="stylesheet"
-    href="static/css/bootstrap.css"
-  />
-
-  <!-- Favicon -->
-  <link
-    rel="icon"
-    href="static/images/favicon.ico"
-    type="image/x-icon"
-  />
-
+  <link rel="stylesheet" href="static/css/bootstrap.css" />
+  <link rel="icon" href="static/images/favicon.ico" type="image/x-icon" />
   <style>
-    html,
-    body {
-      height: 100%;
-      margin: 0;
+    :root{
+      --cream-page:  #FEFAE0;
+      --cream-nav:   #FAEDCD;
+      --cream-footer:#FAEDCD;
+      --text-color:  #000000;
+      --muted-color: #401F3E;
+      --accent:      #861657;
     }
-    body {
-      display: flex;
-      flex-direction: column;
+
+    /* ---------- Layout rules ---------- */
+    html,body{height:100%;margin:0;}
+    body{
+      min-height:100vh;
+      margin:0;
+      background:var(--cream-page);
+      color:var(--text-color);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      display:flex;
+      flex-direction:column;
     }
-    .sticky-header {
+
+    /* Header (sticky) with centered inner column (.site-inner) */
+    .sticky-header{
       position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: #f8f9fa;
+      top:0;
+      z-index:1030;
+      width:100%;
+      background:var(--cream-nav);
+      backdrop-filter: blur(2px);
     }
-    .main-content {
-      flex: 1;
-      padding: 2rem 1rem;
+    /* Center column on large screens */
+    .site-inner{
+      margin:0 auto;
+      /* 1/2 of the viewport width on large screens */
+      width:50vw;
+      max-width:980px;
+      min-width:320px;
+      padding:0 1rem;
     }
-    .sticky-footer {
-      position: sticky;
-      bottom: 0;
-      z-index: 1000;
-      background: #f8f9fa;
-      text-align: center;
-      padding: 1rem 0;
+    /* Mobile-friendly breakpoint: use 90% width */
+    @media (max-width:1000px){
+      .site-inner{ width:90vw; min-width:0; }
     }
+
+    /* Header content */
+    .header-top{ padding:1.1rem 0; display:flex; align-items:center; justify-content:space-between; gap:1rem; }
+    .header-left { display:block; text-align:left; }
+    .site-subtitle { color:var(--muted-color); font-size:.92rem; margin-top:.15rem; }
+
+    /* Contact buttons */
+    .header-actions {
+      display:flex;
+      gap:.5rem;
+      margin-top:.6rem;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+
+    /* Main content uses the same center column */
+    main{ flex:1; padding:2rem 0; }
+    .section { margin-bottom:1.25rem; }
+    .muted { color:var(--muted-color); }
+
+    /* Headshot */
+    img.headshot{ max-width:120px; border-radius:8px; display:block; }
+
+    /* Footer */
+    .site-footer{ width:100%; background:var(--cream-footer); border-top:1px solid rgba(0,0,0,0.03); padding:1rem 0; text-align:center; }
+
+    /* Links */
+    a { color:var(--accent); }
   </style>
 </head>
+
 <body>
-  <header class="sticky-header">
-    <div class="container text-center">
-      <h1>Conan (Po) Dewitt</h1>
+  <!-- NAVBAR -->
+  <header class="sticky-header" role="banner">
+    <div class="site-inner">
+      <div class="header-top">
+        <div class="header-left">
+          <h1 class="h1 mb-0">Conan (Po) Dewitt</h1>
+          <div class="site-subtitle">Software Engineer</div>
+          <div class="header-actions" aria-label="contact">
+            <a class="btn btn-outline-primary btn-sm" href="https://www.linkedin.com/in/conanpodewitt/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a class="btn btn-outline-primary btn-sm" href="https://github.com/conanpodewitt" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a class="btn btn-outline-primary btn-sm" href="mailto:conanpodewitt@gmail.com">Email</a>
+            <a class="btn btn-outline-primary btn-sm" href="static/files/conan-resume.pdf" download>Resume</a>
+          </div>
+        </div>
+        <!-- optional headshot on larger screens; will sit to the right in the header-inner area -->
+        <div class="d-none d-md-block text-end">
+          <img src="static/images/headshot.jpg" alt="Conan Dewitt" class="headshot" onerror="this.style.display='none'">
+        </div>
+      </div>
     </div>
   </header>
 
-  <main class="main-content container">
-    <section id="about">
-      <h2>About Me</h2>
-      <p>Write a short bio here.</p>
-    </section>
+  <!-- MAIN content -->
+  <main>
+    <div class="site-inner">
 
-    <section id="projects">
-      <h2>Projects</h2>
-      <ul>
-        <li><a href="#">Project A</a></li>
-        <li><a href="#">Project B</a></li>
-      </ul>
-    </section>
+      <!-- About -->
+      <section id="about" class="section">
+        <h2 class="mb-2">About</h2>
+        <p>
+          I'm a software engineer who enjoys working on complex technical challenges across medical technology systems, mobile robotics, and high-performance applications.
+          I focus on writing clean code, collaborating effectively with teams, and delivering results.
+        </p>
+        <p class="muted mb-1">Perth · Western Australia</p>
+        <p class="muted small">+61402616029 · <a href="mailto:conanpodewitt@gmail.com">conanpodewitt@gmail.com</a></p>
 
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>Email: <a href="mailto:you@example.com">you@example.com</a></p>
-    </section>
+        <!-- Skills -->
+        <div class="mt-3">
+          <strong>Top skills:</strong>
+          <span class="btn btn-outline-secondary btn-sm me-1 mb-1">ROS2 Development</span>
+          <span class="btn btn-outline-secondary btn-sm me-1 mb-1">High-Performance Computing</span>
+          <span class="btn btn-outline-secondary btn-sm me-1 mb-1">Machine Learning</span>
+          <span class="btn btn-outline-secondary btn-sm me-1 mb-1">Autonomous Robot Control</span>
+          <span class="btn btn-outline-secondary btn-sm me-1 mb-1">Natural Language Processing</span>
+          <span class="btn btn-outline-secondary btn-sm me-1 mb-1">Parallel Programming</span>
+          <span class="btn btn-outline-secondary btn-sm me-1 mb-1">Distributed Memory Programming</span>
+        </div>
+      </section>
+
+      <!-- Experience -->
+      <section id="experience" class="section">
+        <h2 class="mb-2">Experience</h2>
+
+        <div class="mb-3">
+          <h4 class="mb-0">Sir Charles Gairdner Hospital - Biomedical Engineering Technician</h4>
+          <div class="muted small mb-2">Apr 2024 - Present · Nedlands, WA</div>
+          <ul>
+            <li>Contributed to the successful launch of eMED2, including front-end and platform work.</li>
+            <li>Refactored legacy code and addressed security concerns.</li>
+            <li>Implemented a Vaultwarden password server with a reproducible README for secure deployments.</li>
+          </ul>
+        </div>
+
+        <div class="mb-3">
+          <h4 class="mb-0">Sir Charles Gairdner Hospital - Software Engineering Work Experience Student</h4>
+          <div class="muted small mb-2">Jan 2024 - Mar 2024 · Nedlands, WA</div>
+          <ul>
+            <li>Worked on front-end components for the NMHS eMED system and reviewed code via Git pull requests.</li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="mb-0">City of Bayswater - Shift Supervisor / Swim Instructor</h4>
+          <div class="muted small mb-2">Sep 2020 - Dec 2024 · Embleton, WA</div>
+          <ul>
+            <li>Oversaw operations and coordinated instructors; taught water safety and trained new instructors.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Education -->
+      <section id="education" class="section">
+        <h2 class="mb-2">Education</h2>
+
+        <div class="mb-2">
+          <h4 class="mb-0">The University of Western Australia</h4>
+          <span class="muted small">Master of Professional Engineering (Software Engineering) · Jul 2023 - Nov 2025</span>
+          <div class="small mt-1">Relevant coursework: Cloud Computing, Digital System Design, Machine Learning, NLP, Project Management.</div>
+        </div>
+
+        <div>
+          <h4 class="mb-0">The University of Western Australia</h4>
+          <span class="muted small">Bachelor of Science, Engineering Science · Feb 2020 - Jul 2023</span>
+          <div class="small mt-1">Relevant coursework: Web Dev, Computer Networks, Data Structures, Embedded Systems, OOP.</div>
+        </div>
+      </section>
+
+      <!-- Projects -->
+      <section id="projects" class="section">
+        <h2 class="mb-2">Projects</h2>
+
+        <div class="mb-3">
+          <h4 class="mb-0">LLM-Driven Control for the Pioneer 3-AT Mobile Robot</h4>
+          <div class="muted small">Jul 2024 - May 2025 · The University of Western Australia</div>
+          <p class="small mb-0">Built a modular, containerised ROS2 architecture integrating video captioning, prompt management and command execution for LLM-based robot control.</p>
+        </div>
+
+        <div>
+          <h4 class="mb-0">OpenMP + MPI Vector/Matrix Multiplier</h4>
+          <div class="muted small">Oct 2024 · The University of Western Australia</div>
+          <p class="small mb-0">Investigated hybrid OpenMP+MPI parallelism and performance trade-offs on vector/matrix multiply workloads.</p>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section id="contact" class="section">
+        <h2 class="mb-2">Contact</h2>
+        <p class="mb-1">Phone: <a href="tel:+61402616029">+61402616029</a></p>
+        <p class="mb-1">Email: <a href="mailto:conanpodewitt@gmail.com">conanpodewitt@gmail.com</a></p>
+        <p class="mb-0 small muted">LinkedIn: <a href="https://www.linkedin.com/in/conanpodewitt/">linkedin.com/in/conanpodewitt</a></p>
+      </section>
+
+    </div> <!-- .site-inner -->
   </main>
 
-  <footer class="sticky-footer">
-    &copy; 2025 Conan (Po) Dewitt. All rights reserved.
+  <!-- Footer (full width, not sticky) -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="site-inner">
+      &copy; 2025 Conan (Po) Dewitt. All rights reserved.
+    </div>
   </footer>
 </body>
 </html>
