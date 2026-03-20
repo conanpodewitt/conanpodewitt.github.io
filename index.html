@@ -88,6 +88,24 @@
       display:block;
     }
 
+    /* Responsive video embeds */
+    .video-embed {
+      position:relative;
+      width:100%;
+      padding-bottom:56.25%; /* 16:9 ratio */
+      background:#000;
+      border-radius:8px;
+      overflow:hidden;
+    }
+    .video-embed iframe {
+      position:absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+      border:0;
+    }
+
     /* Keyframes for 3D rotation */
     @keyframes spinY {
       0% { transform: perspective(600px) rotateY(0deg); }
@@ -191,8 +209,8 @@
           <p class="small mb-0">Built a modular, containerised ROS2 architecture integrating video captioning, prompt management and command execution for LLM-based robot control.</p>
         </div>
 
-        <div class="mb-3">
-          <iframe width="640" height="360" src="https://www.youtube.com/embed/9ZTfI8QgTjU"></iframe>
+        <div class="mb-3 video-embed">
+          <iframe src="https://www.youtube.com/embed/9ZTfI8QgTjU" title="Pioneer 3-AT demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" loading="lazy"></iframe>
         </div>
 
         <div class="mb-3">
